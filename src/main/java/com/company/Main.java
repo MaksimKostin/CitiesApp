@@ -20,9 +20,13 @@ public class Main{
                 "с учетом регистра.");
         System.out.println("4) Максимальное количество жителей.");
         System.out.println("5) Количество городов в разрезе регионов.");
+        System.out.println("6) Выход.");
 
         Scanner scanner = new Scanner(System.in);
         int action = scanner.nextInt();
+        if(action == 6){
+            System.exit(0);
+        }
 
         List<City> cityList = CityUtils.parseFile(); // Получение списка городов
         CityDAO cityDAO = new CityDAO();
