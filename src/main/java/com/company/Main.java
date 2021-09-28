@@ -28,6 +28,7 @@ public class Main{
             System.exit(0);
         }
 
+
         List<City> cityList = CityUtils.parseFile(); // Получение списка городов
         CityDAO cityDAO = new CityDAO();
         cityDAO.writeCities(cityList); // Добавление в БД
