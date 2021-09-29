@@ -4,6 +4,7 @@ import com.company.dao.CityDAO;
 import com.company.model.City;
 import com.company.utils.CityUtils;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -23,7 +24,18 @@ public class Main{
         System.out.println("6) Выход.");
 
         Scanner scanner = new Scanner(System.in);
-        int action = scanner.nextInt();
+        int action = 0;
+        if (scanner.hasNextInt()){
+            action = scanner.nextInt();
+            if (action<1 || action>6) {
+                System.out.println("Диапозон не соблюден!");
+                System.exit(0);
+            }
+        }else{
+            System.out.println("Некорректный ввод!");
+            System.exit(0);
+        }
+
         if(action == 6){
             System.exit(0);
         }
