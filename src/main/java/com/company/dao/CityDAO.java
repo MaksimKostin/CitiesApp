@@ -4,13 +4,17 @@ import com.company.model.City;
 import com.company.utils.HibernateSessionFactoryUtil;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.postgresql.util.PSQLException;
 
 import javax.persistence.PersistenceException;
 import java.util.List;
 
 public class CityDAO {
 
+    /**
+     *  Запись списка в БД
+     *
+     * @param cities - список городов
+     */
     public void writeCities(List<City> cities){
         try{
             Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
@@ -27,6 +31,11 @@ public class CityDAO {
         }
     }
 
+    /**
+     * Получение городов из БД
+     *
+     * @return список городов
+     */
     public List<City> getCities(){
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         return session.createQuery("select c from City c", City.class)
